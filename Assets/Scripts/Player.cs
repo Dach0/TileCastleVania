@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public float runSpeed = 5f;
     public float jumpSpeed = 5f;
     public float climbSpeed = 5f;
+    public Vector2 deathKick = new Vector2(25f, 25f);
 
     //State
     bool isAlive = true;
@@ -15,7 +16,8 @@ public class Player : MonoBehaviour
     //Cached component references
     Rigidbody2D myRigidbody = default;
     Animator myAnimator = default;
-    Collider2D myCollider2D = default;
+    CapsuleCollider2D myBodyCollider2D = default;
+    BoxCollider2D myFeetCollider2D = default;
     float gravityScaleAtStart = default;
 
     //Messages then methods
@@ -24,17 +26,20 @@ public class Player : MonoBehaviour
     {
         myRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
-        myCollider2D = GetComponent<Collider2D>();
+        myBodyCollider2D = GetComponent<CapsuleCollider2D>();
+        myFeetCollider2D = GetComponent<BoxCollider2D>();
         gravityScaleAtStart = myRigidbody.gravityScale;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!isAlive) { return; }
         Run();
         Jump();
         ClimbLadder();
         FlipSprite();
+        Die();
     }
 
     private void Run()
@@ -49,7 +54,7 @@ public class Player : MonoBehaviour
 
     private void Jump()
     {
-        if (!myCollider2D.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        if (!myFeetCollider2D.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
             return;
         }
@@ -62,7 +67,7 @@ public class Player : MonoBehaviour
 
     private void ClimbLadder()
     {
-        if (!myCollider2D.IsTouchingLayers(LayerMask.GetMask("Climbing")))
+        if (!myFeetCollider2D.IsTouchingLayers(LayerMask.GetMask("Climbing")))
         {
             myAnimator.SetBool("Climbing", false);
             myRigidbody.gravityScale = gravityScaleAtStart;
@@ -84,6 +89,16 @@ public class Player : MonoBehaviour
         {
             //revert scaling of axis
             transform.localScale = new Vector2(Mathf.Sign(myRigidbody.velocity.x), 1f);
+        }
+    }
+
+    private void Die()
+    {
+        if (myBodyCollider2D.IsTouchingLayers(LayerMask.GetMask("Enemy", "Hazards")))
+        {
+           GetComponent<Rigidbody2D>().velocity = new Vector2 (-Mathf.Sign(myRigidbody.velocity.x) * deathKick.x, deathKick.y); // ovo je on dodao, a ja cu samo animaciju da pokrenem
+           isAlive = false;
+           myAnimator.SetTrigger("Dying");
         }
     }
 }

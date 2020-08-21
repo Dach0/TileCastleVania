@@ -1,0 +1,410 @@
+fileFormatVersion: 2
+guid: 1c82b2e042824f443b7b6410420760b7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2445747190806176226
+    second: sheet_hero_dead_0
+  - first:
+      213: -1552561931534158735
+    second: sheet_hero_dead_1
+  - first:
+      213: -2719659122900746632
+    second: sheet_hero_dead_2
+  - first:
+      213: -4685126406065619582
+    second: sheet_hero_dead_3
+  - first:
+      213: -6621934250425626467
+    second: sheet_hero_dead_4
+  - first:
+      213: -3693436125869153343
+    second: sheet_hero_dead_5
+  - first:
+      213: -3463882207958394470
+    second: sheet_hero_dead_6
+  - first:
+      213: 1975874931999471246
+    second: sheet_hero_dead_7
+  - first:
+      213: -5920685071808516258
+    second: sheet_hero_dead_8
+  - first:
+      213: 3371353614317440918
+    second: sheet_hero_dead_9
+  - first:
+      213: 4746227993367822848
+    second: sheet_hero_dead_10
+  - first:
+      213: -400975451684598303
+    second: sheet_hero_dead_11
+  - first:
+      213: 4798751583863958662
+    second: sheet_hero_dead_12
+  - first:
+      213: -1584897164579144848
+    second: sheet_hero_dead_13
+  - first:
+      213: 4332539406926115243
+    second: sheet_hero_dead_14
+  - first:
+      213: -7194991335328866125
+    second: sheet_hero_dead_15
+  - first:
+      213: -1354150935722735985
+    second: sheet_hero_dead_0
+  - first:
+      213: -1228049099134808695
+    second: sheet_hero_dead_1
+  - first:
+      213: 1620356978017490216
+    second: sheet_hero_dead_2
+  - first:
+      213: -4758004280691387990
+    second: sheet_hero_dead_3
+  - first:
+      213: -693216582281098164
+    second: sheet_hero_dead_4
+  - first:
+      213: -6788978986168984667
+    second: sheet_hero_dead_5
+  - first:
+      213: 5091559707870421250
+    second: sheet_hero_dead_6
+  - first:
+      213: 8588198368801428433
+    second: sheet_hero_dead_7
+  - first:
+      213: -4096001501344724861
+    second: sheet_hero_dead_8
+  - first:
+      213: -21683346512075961
+    second: sheet_hero_dead_9
+  - first:
+      213: 8887212718033366857
+    second: sheet_hero_dead_10
+  - first:
+      213: -7032376297099888411
+    second: sheet_hero_dead_11
+  - first:
+      213: -2809934551343466774
+    second: sheet_hero_dead_12
+  - first:
+      213: -1965558848311454429
+    second: sheet_hero_dead_13
+  - first:
+      213: 8727921463545954289
+    second: sheet_hero_dead_14
+  - first:
+      213: -4437483968602594596
+    second: sheet_hero_dead_15
+  - first:
+      213: -9167654879944342141
+    second: sheet_hero_dead_16
+  - first:
+      213: -2182094597707983081
+    second: sheet_hero_dead_17
+  - first:
+      213: 7931739195841550202
+    second: sheet_hero_dead_18
+  - first:
+      213: 7388794055209801337
+    second: sheet_hero_dead_19
+  - first:
+      213: 1268403524469081486
+    second: sheet_hero_dead_20
+  - first:
+      213: -659446888843685577
+    second: sheet_hero_dead_21
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sheet_hero_dead_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f86cbf706e6153de0800000000000000
+      internalID: -1354150935722735985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet_hero_dead_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98dc45fc9d715fee0800000000000000
+      internalID: -1228049099134808695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet_hero_dead_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 825de04261aac7610800000000000000
+      internalID: 1620356978017490216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet_hero_dead_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa11a91d05c28fdb0800000000000000
+      internalID: -4758004280691387990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet_hero_dead_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4c89b4f0333166f0800000000000000
+      internalID: -693216582281098164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet_hero_dead_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ab5ec5e493b8c1a0800000000000000
+      internalID: -6788978986168984667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet_hero_dead_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 201ee4cf39ad8a640800000000000000
+      internalID: 5091559707870421250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet_hero_dead_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d39ff80ae86f2770800000000000000
+      internalID: 8588198368801428433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
