@@ -16,13 +16,13 @@ TagManager:
   - Ground
   - Climbing
   - Player
+  - 
+  - 
   - Background
+  - 
   - Enemy
   - Hazards
-  - 
-  - 
-  - 
-  - 
+  - Interactables
   - 
   - 
   - 
@@ -41,6 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background Mask
+    uniqueID: 790295691
+    locked: 0
   - name: Background
     uniqueID: 2197303311
     locked: 0
@@ -52,6 +55,9 @@ TagManager:
     locked: 0
   - name: Hazards
     uniqueID: 325262629
+    locked: 0
+  - name: Interactables
+    uniqueID: 2787501843
     locked: 0
   - name: Player
     uniqueID: 1169542167

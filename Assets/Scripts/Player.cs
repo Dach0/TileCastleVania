@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
 
     //Cached component references
     Rigidbody2D myRigidbody = default;
-    Animator myAnimator = default;
+    public Animator myAnimator = default;
     CapsuleCollider2D myBodyCollider2D = default;
     BoxCollider2D myFeetCollider2D = default;
     float gravityScaleAtStart = default;
@@ -94,11 +94,18 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
-        if (myBodyCollider2D.IsTouchingLayers(LayerMask.GetMask("Enemy", "Hazards")))
+        if (myBodyCollider2D.IsTouchingLayers(LayerMask.GetMask("Enemy", "Hazards")) || myFeetCollider2D.IsTouchingLayers(LayerMask.GetMask("Enemy", "Hazards")))
         {
-           GetComponent<Rigidbody2D>().velocity = new Vector2 (-Mathf.Sign(myRigidbody.velocity.x) * deathKick.x, deathKick.y); // ovo je on dodao, a ja cu samo animaciju da pokrenem
+           GetComponent<Rigidbody2D>().velocity = new Vector2 (-Mathf.Sign(myRigidbody.velocity.x) * deathKick.x, deathKick.y);
            isAlive = false;
            myAnimator.SetTrigger("Dying");
+            StartCoroutine(ProcessDeathToSession());
         }
+    }
+
+    IEnumerator ProcessDeathToSession()
+    {
+           yield return new WaitForSeconds(1);
+           FindObjectOfType<GameSession>().ProcessPlayerDeath();
     }
 }
