@@ -15847,6 +15847,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1464529692, guid: 3374b1c8b6ac5d041b3ffdf7cf415a1e, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 53806257190823846}
     - target: {fileID: 5918111206378935706, guid: 3374b1c8b6ac5d041b3ffdf7cf415a1e,
         type: 3}
       propertyPath: m_Name
@@ -16853,7 +16857,7 @@ PrefabInstance:
     - target: {fileID: 8111805794755450556, guid: 99ba9b798e077384e8f1bdf6d5b2e05a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.609993
+      value: -9.612019
       objectReference: {fileID: 0}
     - target: {fileID: 8111805794755450556, guid: 99ba9b798e077384e8f1bdf6d5b2e05a,
         type: 3}
