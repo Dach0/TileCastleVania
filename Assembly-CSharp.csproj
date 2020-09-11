@@ -70,9 +70,13 @@
     <Compile Include="Assets\Scripts\GameSession.cs" />
     <Compile Include="Assets\Scripts\LevelExit.cs" />
     <Compile Include="Assets\Scripts\Menu.cs" />
+    <Compile Include="Assets\Scripts\Platform.cs" />
+    <Compile Include="Assets\Scripts\PlatformMovement.cs" />
+    <Compile Include="Assets\Scripts\PlatformSpawner.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PlayerCombat.cs" />
     <Compile Include="Assets\Scripts\ScenePersist.cs" />
+    <Compile Include="Assets\Scripts\VerticalScroll.cs" />
     <None Include="Assets\MyPackages\pack1\Base pack\Player\p1_spritesheet.txt" />
     <None Include="Assets\MyPackages\pack1\Extra animations and enemies\Spritesheets\alienYellow.xml" />
     <None Include="Assets\MyPackages\CastleTileSet\public-license.txt" />

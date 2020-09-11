@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,16 +7,27 @@ public class PlayerCombat : MonoBehaviour
 {
     public Player player;
     public Transform attackPoint;
+    public Transform upAttackPoint;
     public LayerMask enemyLayers;
 
     
     public float attackRange = 0.5f;
+    public float upAttackRangeX = 0.5f;
+    public float upAttackRangeY = 0.5f;
     public int attackDamage = 40;
+
+    public float fastAttackRate = 3f; //koliko puta možemo da napadnemo u sekundi
+    public float slowAttackRate = 2f; //koliko puta možemo da napadnemo u sekundi
+    float nextAttackTime = 0f;
 
     // Update is called once per frame
     void Update()
     {
-        AttackStab();
+        if(Time.time >= nextAttackTime)
+        {
+            AttackStab();
+            AttackStabUp();
+        }
     }
 
 
@@ -31,15 +43,40 @@ public class PlayerCombat : MonoBehaviour
 
             foreach (Collider2D enemy in hitEnemies)
             {
-                enemy.GetComponent<Enemy>().takeDamage(attackDamage);
+                StartCoroutine(TakeDamage(enemy));
             }
+            nextAttackTime = Time.time + 1f / fastAttackRate;
         }
 
     }
-        // da bi vidjeli u editoru naš krug po kojim udara naš junak moramo da napravimo f-ju koja će nam prikazivati to dok ne podesimo stvari
+    private void AttackStabUp()
+    {
+        if (Input.GetButtonDown("AttackStabUp"))
+        {
+            player.myAnimator.SetTrigger("IsAttackingStabUp");
+            Collider2D [] hitEnemies = Physics2D.OverlapBoxAll(upAttackPoint.position, new Vector3(upAttackRangeX, upAttackRangeY),0, enemyLayers);
+
+            foreach (Collider2D enemy in hitEnemies)
+            {
+                StartCoroutine(TakeDamage(enemy));
+            }
+            nextAttackTime = Time.time + 1f / slowAttackRate;
+        }
+    }
+
+    IEnumerator TakeDamage(Collider2D enemyCollider)
+    {
+        yield return new WaitForSeconds(0.3f);
+        enemyCollider.GetComponent<Enemy>().takeDamage(attackDamage);
+    }
+
+    
+    // da bi vidjeli u editoru naš krug po kojim udara naš junak moramo da napravimo f-ju koja će nam prikazivati to dok ne podesimo stvari
         void OnDrawGizmosSelected()
         {
             if (attackPoint == null) return;
             Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+            if (upAttackPoint == null) return;
+            Gizmos.DrawWireCube(upAttackPoint.position, new Vector3(upAttackRangeX, upAttackRangeY));
         }
 }

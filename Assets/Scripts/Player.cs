@@ -66,6 +66,18 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("FallingMovingPlatform"))
+        {
+            transform.parent = collision.gameObject.transform.GetChild(0).transform;
+        }
+        else
+        {
+            transform.parent = null;
+        }
+    }
+
     private void ClimbLadder()
     {
         if (!myFeetCollider2D.IsTouchingLayers(LayerMask.GetMask("Climbing")))

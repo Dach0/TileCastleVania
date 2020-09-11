@@ -5,61 +5,113 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    public Transform player;
+    public Transform castPoint = default;
     public Enemy enemy;
     public float agroRange = 3f;
 
     // Update is called once per frame
     void Update()
     {
-        float distToPlayer = Vector2.Distance(transform.position, player.position);
-
-        if (gameObject.CompareTag("Enemy1"))
+        if (CanSeePlayer(agroRange))
         {
-            Enemy1Attack(distToPlayer);
-        }
-        
-        if (gameObject.CompareTag("Enemy2"))
-        {
-            Enemy2Attack(distToPlayer);
-        }
-
-
-
-    }
-
-    private void Enemy1Attack(float distanceToPlayer)
-    {
-        if (distanceToPlayer < agroRange && ((transform.position.x < player.position.x && transform.localScale.x >0) || (transform.position.x > player.position.x && transform.localScale.x < 0)))
-        {
-            enemy.myAnimator.SetBool("IsAttacking", true);
+            CheckEnemyAndAttack();
         }
         else
         {
-            enemy.myAnimator.SetBool("IsAttacking", false);
+            CheckEnemyAndStopAttacking();
         }
     }
-    
-    private void Enemy2Attack(float distanceToPlayer)
+
+    private void CheckEnemyAndStopAttacking()
     {
-        if (distanceToPlayer < agroRange)
+        if (gameObject.CompareTag("Enemy1"))
         {
-            if (transform.position.x < player.position.x)
+            Enemy1StopAttacking();
+        }
+
+        if (gameObject.CompareTag("Enemy2"))
+        {
+            Enemy2StopAttacking();
+        }
+    }
+
+    private void CheckEnemyAndAttack()
+    {
+        if (gameObject.CompareTag("Enemy1"))
+        {
+            Enemy1Attack();
+        }
+
+        if (gameObject.CompareTag("Enemy2"))
+        {
+            Enemy2Attack();
+        }
+    }
+
+    bool CanSeePlayer(float distance)
+    {
+        bool val = false;
+
+        float castDistance = distance;
+        if(transform.localScale.x <= 0)
+        {
+            castDistance = -distance;
+        }
+
+        Vector2 endPos = castPoint.position + Vector3.right * castDistance; // isto kao da smo napisali new Vector3(position.x + distance)
+        RaycastHit2D hit = Physics2D.Linecast(castPoint.position, endPos, 1 << LayerMask.NameToLayer("Action"));   // ovaj raycast gleda na to da li on ima kontakta sa layerom Action
+
+        if (hit.collider != null)
+        {
+            if (hit.collider.gameObject.CompareTag("Player"))
             {
-                enemy.myAnimator.SetBool("IsAttackingRight", true);
-                enemy.myAnimator.SetBool("IsAttackingLeft", false);
+                val = true;
             }
             else
+            {
+                val = false;
+            }
+
+            Debug.DrawLine(castPoint.position, hit.point, Color.yellow);
+        }
+        else
+        {
+            Debug.DrawLine(castPoint.position, endPos, Color.blue);
+        }
+
+        return val;
+    }
+
+    private void Enemy1Attack()
+    {
+            enemy.myAnimator.SetBool("IsAttacking", true);
+    }
+
+    private void Enemy1StopAttacking()
+    {
+        enemy.myAnimator.SetBool("IsAttacking", false);
+    }
+    
+    private void Enemy2Attack()
+    {
+
+            if (FindObjectOfType<Player>().transform.position.x < transform.position.x)
             {
                 enemy.myAnimator.SetBool("IsAttackingRight", false);
                 enemy.myAnimator.SetBool("IsAttackingLeft", true);
             }
-        }
-        else
-        {
-            enemy.myAnimator.SetBool("IsAttackingRight", false);
-            enemy.myAnimator.SetBool("IsAttackingLeft", false);
-        }
+            else
+            {
+                enemy.myAnimator.SetBool("IsAttackingRight", true);
+                enemy.myAnimator.SetBool("IsAttackingLeft", false);
+            }
+      
+    }
+
+    private void Enemy2StopAttacking()
+    { 
+        enemy.myAnimator.SetBool("IsAttackingRight", false);
+        enemy.myAnimator.SetBool("IsAttackingLeft", false);
     }
 
     public void TurnOnLeftBiteCollider()
