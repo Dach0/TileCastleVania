@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlatformSpawner : MonoBehaviour
 {
-
+    public bool spawning = false;
     public GameObject[] platform;
     public float randX; // x koordinata
     Vector2 whereToSpawn;
@@ -19,26 +19,30 @@ public class PlatformSpawner : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        SpawnFallingPlatforms();
+    {  
+            SpawnFallingPlatforms();
     }
 
     private void SpawnFallingPlatforms()
     {
-        if (Time.time > nextSpawn)
+        if (spawning)
         {
-            nextSpawn = Time.time + SpawnRate;
-            randX = Random.Range(-12f, 6.3f);
-            whereToSpawn = new Vector2(randX, transform.position.y);
-            var platformToBeSpawned = platform[Random.Range(0, platform.Length)];
-            if (platformToBeSpawned.CompareTag("FallingMovingPlatform"))
+            if (Time.time > nextSpawn)
             {
-                Instantiate(platformToBeSpawned, transform.position, Quaternion.identity);
+                nextSpawn = Time.time + SpawnRate;
+                randX = Random.Range(-12f, 6.3f);
+                whereToSpawn = new Vector2(randX, transform.position.y);
+                var platformToBeSpawned = platform[Random.Range(0, platform.Length)];
+                if (platformToBeSpawned.CompareTag("FallingMovingPlatform"))
+                {
+                    Instantiate(platformToBeSpawned, transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    Instantiate(platformToBeSpawned, whereToSpawn, Quaternion.identity);
+                }
             }
-            else
-            {    
-                Instantiate(platformToBeSpawned, whereToSpawn, Quaternion.identity);
-            } 
+            else return;
         }
     }
 }

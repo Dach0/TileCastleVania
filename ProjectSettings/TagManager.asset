@@ -8,6 +8,7 @@ TagManager:
   - Enemy2
   - MovingPlatform
   - FallingMovingPlatform
+  - PlatformSpawner
   layers:
   - Default
   - TransparentFX

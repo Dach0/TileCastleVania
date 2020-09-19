@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CoinPickup.cs" />
+    <Compile Include="Assets\Scripts\ElementDestroyer.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\EnemyAttack.cs" />
     <Compile Include="Assets\Scripts\EnemyMovement.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Assets\Scripts\PlayerCombat.cs" />
     <Compile Include="Assets\Scripts\ScenePersist.cs" />
     <Compile Include="Assets\Scripts\VerticalScroll.cs" />
+    <Compile Include="Assets\StartFallingPlatformsLevel.cs" />
     <None Include="Assets\MyPackages\pack1\Base pack\Player\p1_spritesheet.txt" />
     <None Include="Assets\MyPackages\pack1\Extra animations and enemies\Spritesheets\alienYellow.xml" />
     <None Include="Assets\MyPackages\CastleTileSet\public-license.txt" />

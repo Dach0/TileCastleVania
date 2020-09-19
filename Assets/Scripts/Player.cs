@@ -1,17 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
     //Config
     public float runSpeed = 5f;
     public float jumpSpeed = 5f;
+    public float secondJumpSpeedReducer = 4f;
     public float climbSpeed = 5f;
     public Vector2 deathKick = new Vector2(25f, 25f);
 
     //State
     bool isAlive = true;
+    bool doubleJumpAllowed = false;
 
     //Cached component references
     Rigidbody2D myRigidbody = default;
@@ -54,15 +57,29 @@ public class Player : MonoBehaviour
 
     private void Jump()
     {
-        if (!myFeetCollider2D.IsTouchingLayers(LayerMask.GetMask("Ground")))
-        {
-            return;
-        }
         if (Input.GetButtonDown("Jump"))
         {
-            Vector2 jumpVelocityToAdd = new Vector2(0f, jumpSpeed);
-            myRigidbody.velocity += jumpVelocityToAdd;
-            myAnimator.SetTrigger("IsJumping");
+            if (!myFeetCollider2D.IsTouchingLayers(LayerMask.GetMask("Ground")) && doubleJumpAllowed)
+            {
+                Vector2 secondJumpVelocityToAdd = new Vector2(0f, jumpSpeed - secondJumpSpeedReducer);
+                myRigidbody.velocity += secondJumpVelocityToAdd;
+                myAnimator.SetTrigger("IsJumping");
+                doubleJumpAllowed = false;
+            }
+            else if (!myFeetCollider2D.IsTouchingLayers(LayerMask.GetMask("Ground")))
+            {
+                return;
+            }
+            else
+            {
+                Vector2 jumpVelocityToAdd = new Vector2(0f, jumpSpeed);
+                myRigidbody.velocity += jumpVelocityToAdd;
+                myAnimator.SetTrigger("IsJumping");
+                if (SceneManager.GetActiveScene().buildIndex == 3)
+                {
+                    doubleJumpAllowed = true;
+                }
+            }
         }
     }
 

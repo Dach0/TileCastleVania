@@ -19,4 +19,9 @@ public class PlatformMovement : MonoBehaviour
     {
         myRigidbody2D.velocity = new Vector2(0f, fallingPlatformSpeed);
     }
+
+    public void SetFallingPlatformSpeed(float speed)
+    {
+        fallingPlatformSpeed = speed;
+    }
 }
